@@ -3,7 +3,6 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 5000;
-
 // Helper function to format prices
 const formatPrice = (price) => {
   return {
@@ -12,7 +11,6 @@ const formatPrice = (price) => {
     decimals: Number((price.amount % 1).toFixed(2).split('.')[1]),
   };
 };
-
 // Endpoint to search for items
 app.get('/api/items', async (req, res) => {
   try {
@@ -37,7 +35,6 @@ app.get('/api/items', async (req, res) => {
     res.status(500).send(error.message);
   }
 });
-
 // Endpoint to get details of a specific item
 app.get('/api/items/:id', async (req, res) => {
   try {
@@ -64,7 +61,6 @@ app.get('/api/items/:id', async (req, res) => {
     res.status(500).send(error.message);
   }
 });
-
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
