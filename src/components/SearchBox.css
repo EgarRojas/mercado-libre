@@ -1,0 +1,75 @@
+.search-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra horizontalmente el contenido (logo y formulario de búsqueda) */
+    padding: 10px 20px;
+    background-color: #ffe600;
+    color: white;
+    position: relative;
+  }
+  
+  .logo {
+    margin-right: 20px; /* Espacio entre el logo y el formulario de búsqueda */
+  }
+  
+  .logo img {
+    height: 40px; /* Ajusta la altura del logo según sea necesario */
+    width: auto;
+  }
+  
+  .search-form {
+    position: relative; /* Make the form container relative for absolute positioning of the button */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .search-form input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 18px;
+    outline: none;
+  }
+  
+  .search-form button {
+    position: absolute; /* Position button inside the form */
+    right: 0; /* Align button to the right edge of the input */
+    top: 50%; /* Center button vertically within the form */
+    transform: translateY(-50%); /* Adjust for perfect vertical alignment */
+    background: #f4f4f4;
+    border: none; /* Remove border from button */
+    cursor: pointer;
+    padding: 8px; /* Adjust padding to fit the size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px; /* Make button height match input height */
+    width: 45px; /* Adjust width to fit the smaller icon */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+  
+  .search-form button svg {
+    color: #665;
+    font-size: 16px; /* Adjust icon size */
+    border: none; /* Ensure no border is applied to the SVG */
+  }
+  
+  @media (max-width: 600px) {
+    .search-header {
+      flex-direction: column;
+      align-items: center; /* Centra el contenido en pantallas pequeñas */
+    }
+  
+    .search-form {
+      width: 100%;
+    }
+  
+    .logo {
+      margin-right: 0;
+      margin-bottom: 10px; /* Espacio adicional debajo del logo en pantallas pequeñas */
+    }
+  }
+  
