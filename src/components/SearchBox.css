@@ -76,7 +76,7 @@
   .results-list {
     list-style-type: none;
     padding: 0;
-    margin: 10px 0 0;
+    margin: 0;
     background-color: white;
     border: 1px solid #ccc;
     max-height: 100%;
@@ -90,32 +90,44 @@
     align-items: center;
     border-bottom: 1px solid #eee;
     cursor: pointer;
+    
   }
   
   .results-list li img {
-    width: 80px; /* Larger image */
-    height: 80px;
-    object-fit: cover;
-    margin-right: 15px;
-    border-radius: 4px;
+    width: 100px; /* Set the desired width */
+    height: 100px; /* Set the desired height */
+    object-fit: contain; /* Ensure the entire image fits within the dimensions without being cropped */
+    margin-right: 20px; /* Space between image and item info */
+    background-color: #f9f9f9; /* Optional: Add a background color to fill any empty space */
+    padding: 5px; /* Optional: Add padding to create space between the image and its container */
+    border: 1px solid #ddd; /* Optional: Add a border around the image for better separation */
+    box-sizing: border-box; /* Ensure padding and border are included in the image's dimensions */
   }
   
   .results-list li .item-info {
+    margin-bottom: 30px;
+    flex: 1;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 600px) {
+      margin-bottom: 10px;
+      }
+    
   }
   
   .results-list li .item-title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
-    color: #333;
+    color: #666;
     margin-bottom: 5px;
+    font-weight: 400;
   }
   
   .results-list li .item-price {
     font-size: 16px;
-    color: #007bff;
-    margin-bottom: 5px;
+    color: black;
+    margin-bottom: 20px; /* Space between price and title */
   }
   
   .results-list li .item-description {
@@ -127,3 +139,24 @@
     background-color: #f0f0f0;
   }
   
+
+  .search-route-menu {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.search-route-menu p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.search-route-menu a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.search-route-menu a:hover {
+  text-decoration: underline;
+}
