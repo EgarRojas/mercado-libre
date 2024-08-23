@@ -13,7 +13,9 @@ const SearchBox = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    // Navigate to '/items' route and clear search results
     navigate(`/items?search=${query}`);
+    setResults([]); // Clear results to ensure they are updated on new search
   };
 
   const handleSelectItem = (id) => {
@@ -23,7 +25,8 @@ const SearchBox = () => {
 
   useEffect(() => {
     const fetchResults = async () => {
-      if (query.length > 2) {
+      // Fetch search results only if on the '/items' route and query length is greater than 2
+      if (query.length > 2 ) {
         try {
           const { data } = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${query}`);
           const items = await Promise.all(
@@ -42,12 +45,16 @@ const SearchBox = () => {
         } catch (error) {
           console.error('Error fetching search results:', error);
         }
-      } else {
-        setResults([]);
+      } else if (location.pathname === '/item') {
+        setResults([]); // Clear results when navigating to ProductDetails
       }
     };
-    fetchResults();
-  }, [query]);
+
+    // Only fetch results if on the '/items' route or if the query changes
+    if (location.pathname === '/items' || location.pathname === '/') {
+      fetchResults();
+    }
+  }, [query, location.pathname]);
 
   return (
     <div className="search-container">
