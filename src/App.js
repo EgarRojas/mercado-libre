@@ -6,11 +6,11 @@ function App() {
   return (
     <Router>
       <div>
-        <SearchBox /> {/* SearchBox remains at the top across all routes */}
+        <SearchBox /> 
         <Routes>
-          <Route path="/" element={<div></div>} /> {/* Empty div for home path */}
-          <Route path="/items" element={<div></div>} /> {/* Empty div for items path */}
-          <Route path="/item/:id" element={<ProductDetails />} /> {/* ProductDetails displayed with SearchBox */}
+          <Route path="/" element={<div></div>} /> 
+          <Route path="/items" element={<div></div>} /> 
+          <Route path="/item/:id" element={<ProductDetails />} /> 
         </Routes>
       </div>
     </Router>

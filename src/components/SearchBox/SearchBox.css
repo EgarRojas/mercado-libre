@@ -1,7 +1,7 @@
 .search-header {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra horizontalmente el contenido (logo y formulario de búsqueda) */
+    justify-content: center; 
     padding: 10px 20px;
     background-color: #ffe600;
     color: white;
@@ -9,16 +9,16 @@
   }
   
   .logo {
-    margin-right: 20px; /* Espacio entre el logo y el formulario de búsqueda */
+    margin-right: 20px; 
   }
   
   .logo img {
-    height: 40px; /* Ajusta la altura del logo según sea necesario */
+    height: 40px; 
     width: auto;
   }
   
   .search-form {
-    position: relative; /* Make the form container relative for absolute positioning of the button */
+    position: relative; 
     display: flex;
     align-items: center;
     width: 100%;
@@ -35,32 +35,32 @@
   }
   
   .search-form button {
-    position: absolute; /* Position button inside the form */
-    right: 0; /* Align button to the right edge of the input */
-    top: 50%; /* Center button vertically within the form */
-    transform: translateY(-50%); /* Adjust for perfect vertical alignment */
+    position: absolute; 
+    right: 0; 
+    top: 50%; 
+    transform: translateY(-50%); 
     background: #f4f4f4;
-    border: none; /* Remove border from button */
+    border: none; 
     cursor: pointer;
-    padding: 8px; /* Adjust padding to fit the size */
+    padding: 8px; 
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 45px; /* Make button height match input height */
-    width: 45px; /* Adjust width to fit the smaller icon */
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    height: 45px; 
+    width: 45px; 
+    box-sizing: border-box; 
   }
   
   .search-form button svg {
     color: #665;
-    font-size: 16px; /* Adjust icon size */
-    border: none; /* Ensure no border is applied to the SVG */
+    font-size: 16px;
+    border: none; 
   }
   
   @media (max-width: 600px) {
     .search-header {
       flex-direction: column;
-      align-items: center; /* Centra el contenido en pantallas pequeñas */
+      align-items: center; 
     }
   
     .search-form {
@@ -69,7 +69,7 @@
   
     .logo {
       margin-right: 0;
-      margin-bottom: 10px; /* Espacio adicional debajo del logo en pantallas pequeñas */
+      margin-bottom: 10px;
     }
   }
   
@@ -94,14 +94,14 @@
   }
   
   .results-list li img {
-    width: 100px; /* Set the desired width */
-    height: 100px; /* Set the desired height */
-    object-fit: contain; /* Ensure the entire image fits within the dimensions without being cropped */
-    margin-right: 20px; /* Space between image and item info */
-    background-color: #f9f9f9; /* Optional: Add a background color to fill any empty space */
-    padding: 5px; /* Optional: Add padding to create space between the image and its container */
-    border: 1px solid #ddd; /* Optional: Add a border around the image for better separation */
-    box-sizing: border-box; /* Ensure padding and border are included in the image's dimensions */
+    width: 100px; 
+    height: 100px; 
+    object-fit: contain; 
+    margin-right: 20px; 
+    background-color: #f9f9f9; 
+    padding: 5px; 
+    border: 1px solid #ddd; 
+    box-sizing: border-box; 
   }
   
   .results-list li .item-info {
@@ -118,7 +118,6 @@
   
   .results-list li .item-title {
     font-size: 14px;
-    font-weight: bold;
     color: #666;
     margin-bottom: 5px;
     font-weight: 400;
@@ -127,7 +126,7 @@
   .results-list li .item-price {
     font-size: 16px;
     color: black;
-    margin-bottom: 20px; /* Space between price and title */
+    margin-bottom: 20px; 
   }
   
   .results-list li .item-description {
