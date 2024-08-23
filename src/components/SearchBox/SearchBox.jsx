@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './SearchBox.css';
-import logo from '../assets/logo_v2.png';
+import logo from '../../assets/logo_v2.png';
 import { FaSearch } from 'react-icons/fa';
 import axios from 'axios';
 
@@ -9,10 +9,16 @@ const SearchBox = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
-  const tag='>'
+  const location = useLocation();
+
   const handleSearch = (e) => {
     e.preventDefault();
     navigate(`/items?search=${query}`);
+  };
+
+  const handleSelectItem = (id) => {
+    setResults([]); // Clear search results
+    navigate(`/item/${id}`); // Navigate to ProductDetails page
   };
 
   useEffect(() => {
@@ -24,7 +30,6 @@ const SearchBox = () => {
             data.results.slice(0, 10).map(async (item) => {
               const detailsResponse = await axios.get(`https://api.mercadolibre.com/items/${item.id}`);
               const descriptionResponse = await axios.get(`https://api.mercadolibre.com/items/${item.id}/description`);
-              console.log(detailsResponse)
               return {
                 ...item,
                 price: detailsResponse.data.price,
@@ -64,23 +69,21 @@ const SearchBox = () => {
           </button>
         </form>
       </header>
-      {query.length > 2 && (
+      {query.length > 2 && location.pathname === '/items' && (
         <div className="search-route-menu">
-          <p>Producto {tag} {query}</p>
+          <p>Producto > {query}</p>
         </div>
       )}
       {results.length > 0 && (
         <ul className="results-list">
           {results.map(item => (
-            <li key={item.id}>
+            <li key={item.id} onClick={() => handleSelectItem(item.id)}>
               <img src={item.picture} alt={item.title} />
               <div className="item-info">
-              <span className="item-price">
+                <span className="item-price">
                   {item.price ? new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(item.price) : "Precio no disponible"}
                 </span>
-                <span className="item-title">{item.title  || "Precio no disponible"}</span>
-                {/* Uncomment if you want to include descriptions */}
-                {/* <span className="item-description">{item.description || "Descripción no disponible"}</span> */}
+                <span className="item-title">{item.title || "Precio no disponible"}</span>
               </div>
             </li>
           ))}

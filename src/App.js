@@ -1,18 +1,18 @@
-// src/App.js
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Results from './pages/Results';
-import Detail from './pages/Detail';
+import SearchBox from './components/SearchBox/SearchBox';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/items" element={<Results />} />
-        <Route path="/items/:id" element={<Detail />} />
-      </Routes>
+      <div>
+        <SearchBox /> {/* SearchBox remains at the top across all routes */}
+        <Routes>
+          <Route path="/" element={<div></div>} /> {/* Empty div for home path */}
+          <Route path="/items" element={<div></div>} /> {/* Empty div for items path */}
+          <Route path="/item/:id" element={<ProductDetails />} /> {/* ProductDetails displayed with SearchBox */}
+        </Routes>
+      </div>
     </Router>
   );
 }
